@@ -4,7 +4,7 @@ PropelHelper
 Helper classes for Propel ORM
 
 ## ReadOnly
-This trait is a workaround for the bug when setting tables to `readOnly="true"` in Propel's schema.xml and still wanting to use the `joinWith()` methods.
+This trait is a workaround for the Propel bug that you cannot use `joinWith()` methods anymore when setting tables to `readOnly="true"` in Propel's `schema.xml` file. So instead of making tables "readonly" in the scheme just add this trait to every child model you want to make readonly.
 
 For details see https://github.com/propelorm/Propel2/issues/629
 
