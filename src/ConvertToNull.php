@@ -8,7 +8,7 @@
  * @license MIT License
  */
 
-namespace ConvertToNull;
+namespace PropelHelper;
 
 /**
  * ConvertToNull
@@ -48,14 +48,15 @@ trait ConvertToNull
     protected function convertToNull($value, array $considerNull)
     {
         if ($value !== null) {
-            if (is_string($value)) {
-                $value = mb_strtolower($value);
+            $compareOriginal = $value;
+            if (is_string($compareOriginal)) {
+                $compareOriginal = mb_strtolower($compareOriginal);
             }
-            foreach ($considerNull as $compare) {
-                if (is_string($compare)) {
-                    $compare = mb_strtolower($compare);
+            foreach ($considerNull as $compareNull) {
+                if (is_string($compareNull)) {
+                    $compareNull = mb_strtolower($compareNull);
                 }
-                if ($value === $compare) {
+                if ($compareOriginal === $compareNull) {
                     $value = null;
                     break;
                 }
