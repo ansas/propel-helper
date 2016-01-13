@@ -26,7 +26,7 @@ trait Validation
      * The error list.
      * @var array
      */
-    private $validationErrors = array();
+    private $validationErrors = [];
 
     /**
      * Add an error to error list
@@ -34,50 +34,51 @@ trait Validation
      * @param $key
      * @param $value
      * @param $overwrite (optional)
-	 * @return $this (for fluent API support)
+     * @return $this (for fluent API support)
      */
     protected function addValidationError($key, $value, $overwrite = true)
     {
-    	if ($overwrite or !isset($this->validationErrors[$key])) {
-        	$this->validationErrors[$key] = $value;
+        if ($overwrite or !isset($this->validationErrors[$key])) {
+            $this->validationErrors[$key] = $value;
         }
         return $this;
-	}
+    }
 
     /**
      * resets validation errors
      *
-     * @return void
+     * @return $this (for fluent API support)
      */
-	protected function clearValidationErrors()
-	{
-		$this->validationErrors = array();
-	}
+    protected function clearValidationErrors()
+    {
+        $this->validationErrors = [];
+        return $this;
+    }
 
     /**
-     * Get an error list
+     * Get the error list
      *
-     * @return array error list
+     * @return array Error list
      */
     public function getValidationErrors()
     {
         return $this->validationErrors;
-	}
+    }
 
     /**
      * Check if there are validation errors
      *
-     * @return bool
+     * @return boolean
      */
-	public function hasValidationErrors()
-	{
-		return count($this->getValidationErrors()) != 0;
-	}
+    public function hasValidationErrors()
+    {
+        return count($this->getValidationErrors()) != 0;
+    }
 
     /**
      * In this method we check for errors
      *
-     * @return bool
+     * @return boolean
      */
     abstract public function isValid();
 }

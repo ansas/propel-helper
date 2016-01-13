@@ -1,13 +1,13 @@
 {
     "name": "dhm80/propel-helper",
     "description": "Helper classes for Propel 2 ORM",
-    "keywords": ["propel", "orm", "helper", "readonly"],
-    "homepage": "https://github.com/dhm80/PropelHelper",
+    "keywords": ["propel", "orm", "helper", "readonly", "validation", "manipulation"],
+    "homepage": "https://github.com/dhm80/propel-helper",
     "license": "MIT",
     "authors": [{
         "name": "Ansas Meyer",
         "email": "webmaster@ansas-meyer.de",
-        "homepage": "http://ansas-meyer.de"
+        "homepage": "https://ansas-meyer.de"
     }],
     "require": {
         "php": ">=5.4",
