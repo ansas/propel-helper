@@ -8,7 +8,7 @@
  * @license MIT License
  */
 
-namespace PropelHelper;
+namespace Ansas\Propel\Helper;
 
 /**
  * Readonly

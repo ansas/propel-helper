@@ -8,7 +8,7 @@
  * @license MIT License
  */
 
-namespace PropelHelper;
+namespace Ansas\Propel\Helper;
 
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
