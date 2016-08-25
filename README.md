@@ -31,13 +31,8 @@ before.
 Three things have to be implemented to use this trait:
 
 1. Use the trait in the desired class
-<code>use Ansas\Propel\Helper\SimpleVersionableBehaviorTrait;</code>
-
 2. Add the following constant with the name of the versionable behavior active records class (e. g. for an 'Account')
-<code>const VERSIONABLE_CLASS = 'AccountVersion';</code>
-
 3. Optionally add the constant for column names (in default PhpName notation) to skip when populating object
-code>const VERSIONABLE_POPULATE_SKIP_COLUMNS = ['UpdatedAt', 'Version'];</code>
 
 Example usage:
 ```php
