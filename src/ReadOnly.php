@@ -1,11 +1,11 @@
 <?php
-
 /**
- * This file is part of the PropelHelper package.
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * This file is part of the "Propel Helper" package.
+ *
+ * For the full copyright and license information, please view the LICENSE.md file distributed with this source code.
  *
  * @license MIT License
+ * @link    https://github.com/ansas/propel-helper
  */
 
 namespace Ansas\Propel\Helper;
@@ -14,24 +14,20 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Readonly
+ * Trait Readonly
  *
- * This trait is a workaround for the bug when setting tables to
- * <code>readOnly="true"</code> in Propel's schema.xml and still
- * wanting to use the <code>joinWith()</code> methods
+ * This trait is a workaround for the bug when setting tables to <code>readOnly="true"</code> in Propel's schema.xml
+ * and still wanting to use the <code>joinWith()</code> methods
  *
- * @see: https://github.com/propelorm/Propel2/issues/629
+ * @see     https://github.com/propelorm/Propel2/issues/629
  *
- * @author Ansas Meyer <webmaster@ansas-meyer.de>
+ * @package Ansas\Propel\Helper
+ * @author  Ansas Meyer <mail@ansas-meyer.de>
  */
 trait Readonly
 {
     /**
-     * Removes this object from datastore and sets delete attribute.
-     *
-     * @param ConnectionInterface $con
-     * @return void
-     * @throws PropelException
+     * @inheritDoc
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -39,11 +35,7 @@ trait Readonly
     }
 
     /**
-     * Persists this object to the database.
-     *
-     * @param ConnectionInterface $con
-     * @return int The number of rows affected by this insert/update and any referring fk objects' save() operations.
-     * @throws PropelException
+     * @inheritDoc
      */
     public function save(ConnectionInterface $con = null)
     {

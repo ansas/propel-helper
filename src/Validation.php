@@ -1,64 +1,36 @@
 <?php
-
 /**
- * This file is part of the PropelHelper package.
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * This file is part of the "Propel Helper" package.
+ *
+ * For the full copyright and license information, please view the LICENSE.md file distributed with this source code.
  *
  * @license MIT License
+ * @link    https://github.com/ansas/propel-helper
  */
 
 namespace Ansas\Propel\Helper;
 
 /**
- * Readonly
+ * Trait Validation
  *
- * This trait is an other (more flexible, easier to use) approach to the
- * new validate behavior in Propel 2.x
+ * This trait is an other (more flexible, easier to use) approach to the new validate behavior in Propel 2.x
  *
- * @see: http://propelorm.org/documentation/behaviors/validate.html
+ * @see     http://propelorm.org/documentation/behaviors/validate.html
  *
- * @author Ansas Meyer <webmaster@ansas-meyer.de>
+ * @package Ansas\Propel\Helper
+ * @author  Ansas Meyer <mail@ansas-meyer.de>
  */
 trait Validation
 {
     /**
-     * The error list.
-     * @var array
+     * @var array The error list
      */
     private $validationErrors = [];
 
     /**
-     * Add an error to error list
+     * Get the error list.
      *
-     * @param $key
-     * @param $value
-     * @param $overwrite (optional)
-     * @return $this (for fluent API support)
-     */
-    protected function addValidationError($key, $value, $overwrite = true)
-    {
-        if ($overwrite or !isset($this->validationErrors[$key])) {
-            $this->validationErrors[$key] = $value;
-        }
-        return $this;
-    }
-
-    /**
-     * resets validation errors
-     *
-     * @return $this (for fluent API support)
-     */
-    protected function clearValidationErrors()
-    {
-        $this->validationErrors = [];
-        return $this;
-    }
-
-    /**
-     * Get the error list
-     *
-     * @return array Error list
+     * @return array
      */
     public function getValidationErrors()
     {
@@ -66,19 +38,52 @@ trait Validation
     }
 
     /**
-     * Check if there are validation errors
+     * Check if there are validation errors.
      *
-     * @return boolean
+     * @return bool
      */
     public function hasValidationErrors()
     {
-        return count($this->getValidationErrors()) != 0;
+        return !!count($this->getValidationErrors());
     }
 
     /**
-     * In this method we check for errors
+     * In this method we check for errors.
      *
-     * @return boolean
+     * This method adds errors to the list via <code>$this->addValidationError('name', 'invalid');<code> and the
+     * implemented method should return <code>return !$this->hasValidationErrors();<code>.
+     *
+     * @return bool
      */
     abstract public function isValid();
+
+    /**
+     * Add an error to error list
+     *
+     * @param $key
+     * @param $value
+     * @param $overwrite [optional]
+     *
+     * @return $this
+     */
+    protected function addValidationError($key, $value, $overwrite = true)
+    {
+        if ($overwrite || !isset($this->validationErrors[$key])) {
+            $this->validationErrors[$key] = $value;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Resets validation errors.
+     *
+     * @return $this
+     */
+    protected function clearValidationErrors()
+    {
+        $this->validationErrors = [];
+
+        return $this;
+    }
 }
