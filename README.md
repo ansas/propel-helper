@@ -1,7 +1,11 @@
-# Ansas\Propel\Helper
+# Propel helper
 
-The "__Propel Helper__" package: Helper classes (traits) for Propel2 ORM
+[![Latest Stable Version](https://poser.pugx.org/ansas/propel-helper/v/stable)](https://packagist.org/packages/ansas/propel-helper)
+[![Total Downloads](https://poser.pugx.org/ansas/propel-helper/downloads)](https://packagist.org/packages/ansas/propel-helper)
+[![Latest Unstable Version](https://poser.pugx.org/ansas/propel-helper/v/unstable)](https://packagist.org/packages/ansas/propel-helper)
+[![License](https://poser.pugx.org/ansas/propel-helper/license)](https://packagist.org/packages/ansas/propel-helper)
 
+Helper classes (traits) for [Propel2](https://github.com/propelorm/Propel2) ORM.
 
 
 ## Ansas\Propel\Helper\ReadOnly
@@ -70,6 +74,21 @@ public function hasValidationErrors()
 abstract public function isValid();
 ```
 
-
-# TODO
+## TODO
 - Write tests
+
+
+## Contribute
+
+Everybody can contribute to this package. Just:
+
+1. fork it,
+2. make your changes and
+3. send a pull request.
+
+Please make sure to follow [PSR-1](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md) and [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md) coding conventions.
+
+
+## License
+
+__MIT license__ (see the [LICENSE](LICENSE.md) file for more information).

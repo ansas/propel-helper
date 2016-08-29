@@ -1,7 +1,7 @@
 {
     "name": "ansas/propel-helper",
     "type": "library",
-    "description": "Helper classes for Propel 2 ORM",
+    "description": "Propel helper - helper classes (traits) for Propel2 ORM",
     "keywords": [
         "Propel",
         "ORM",
