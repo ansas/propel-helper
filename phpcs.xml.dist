@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ruleset name="Slim CS">
-    <description>Slim Helper standard</description>
+<ruleset name="Propel helper">
+    <description>Coding standard</description>
     <!-- Paths to check -->
     <file>src</file>
 
