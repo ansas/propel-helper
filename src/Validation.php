@@ -23,6 +23,11 @@ namespace Ansas\Propel\Helper;
 trait Validation
 {
     /**
+     * @var bool Flag if validated or not
+     */
+    private $validationDone = false;
+
+    /**
      * @var array The error list
      */
     private $validationErrors = [];
@@ -34,16 +39,22 @@ trait Validation
      */
     public function getValidationErrors()
     {
+        $this->validate();
+
         return $this->validationErrors;
     }
 
     /**
      * Check if there are validation errors.
      *
+     * @param bool $revalidate [optional]
+     *
      * @return bool
      */
-    public function hasValidationErrors()
+    public function hasValidationErrors($revalidate = false)
     {
+        $this->validate($revalidate);
+
         return !!count($this->getValidationErrors());
     }
 
@@ -53,9 +64,26 @@ trait Validation
      * This method adds errors to the list via <code>$this->addValidationError('name', 'invalid');<code> and the
      * implemented method should return <code>return !$this->hasValidationErrors();<code>.
      *
-     * @return bool
+     * @return void
      */
-    abstract public function isValid();
+    abstract protected function doValidate();
+
+    /**
+     * Check if there are validation errors.
+     *
+     * @param bool $revalidate [optional]
+     *
+     * @return $this
+     */
+    public function validate($revalidate = false)
+    {
+        if (!$this->validationDone || $revalidate) {
+            $this->resetValidation();
+            $this->doValidate();
+        }
+
+        return $this;
+    }
 
     /**
      * Add an error to error list
@@ -80,8 +108,9 @@ trait Validation
      *
      * @return $this
      */
-    protected function clearValidationErrors()
+    protected function resetValidation()
     {
+        $this->validationDone = false;
         $this->validationErrors = [];
 
         return $this;
