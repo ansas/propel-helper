@@ -68,10 +68,10 @@ This trait makes validation of an object quite easy.
 Methods:
 ```php
 protected function addValidationError($key, $value, $overwrite = true)
-protected function clearValidationErrors()
+protected function resetValidation()
 public function getValidationErrors()
 public function hasValidationErrors()
-abstract public function isValid();
+abstract protected function doValidate();
 ```
 
 ## TODO

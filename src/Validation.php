@@ -61,8 +61,7 @@ trait Validation
     /**
      * In this method we check for errors.
      *
-     * This method adds errors to the list via <code>$this->addValidationError('name', 'invalid');<code> and the
-     * implemented method should return <code>return !$this->hasValidationErrors();<code>.
+     * This method adds errors to the list via <code>$this->addValidationError('name', 'invalid');<code>.
      *
      * @return void
      */
