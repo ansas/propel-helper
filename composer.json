@@ -15,8 +15,8 @@
         "email": "webmaster@ansas-meyer.de",
         "homepage": "https://ansas-meyer.de"
     }],
-    "require": {
-        "propel/propel": "^2"
+    "suggest": {
+        "ansas/propel": "ORM"
     },
     "autoload": {
         "psr-4": {
